@@ -14,7 +14,9 @@ $(document).ready(function () {
 });
 
 $(document).on('click', '.close', function (event) {
-    $(this).parent().parent().fadeOut(200);
+    $(this).parent().parent().fadeOut(200, function () {
+        $(this).remove();
+    });
 });
 
 $(document).on('click', '.arrow', function (event) {
@@ -22,13 +24,13 @@ $(document).on('click', '.arrow', function (event) {
     if (description.css('display') !== 'none') {
         description.slideUp();
         $(this).css({
-            'transform': 'rotate(90deg) translateY(-150%)'
+            'transform': 'rotate(90deg)'
         })
     }
     if (description.css('display') === 'none') {
         description.slideDown();
         $(this).css({
-            'transform': 'rotate(0deg) translateY(-150%)'
+            'transform': 'rotate(0deg)'
         })
     }
 
